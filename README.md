@@ -32,13 +32,3 @@ In case a client receives a token expired message in response to a request, (s)h
 
 ### How it (should) work
 In possession of a JWT token a client can start navigating the API making a first request to `GET /`. It's imperative to pass the token in the header of this and each consecutive request (`Authorization: JWT <token>`). The client will then be automatically redirected to the view (s)he has permission to access (or will get a 403 - Forbidden response). A list of links in the payload will show all the possible actions to be performed at that point.
-
-# Client (frontend)
-
-### Steps to run
-```
-cd sisen/client
-npm i
-npm link aurelia-cli
-au run --watch
-```
