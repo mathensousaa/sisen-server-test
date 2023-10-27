@@ -4,10 +4,13 @@ from django.db import migrations
 import json
 
 
+
 def get_data_from_file():
     import os
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    with open(os.path.realpath('%s/../../../documentation/dataLoad.txt' % dir_path), encoding='utf-8') as json_file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    data_file_path = os.path.join(current_dir, '..', '..', '..', 'documentation', 'dataLoad.txt')
+    
+    with open(data_file_path, encoding='utf-8') as json_file:
         return json.load(json_file)
 
 def get_model(apps, model, app='survey'):
